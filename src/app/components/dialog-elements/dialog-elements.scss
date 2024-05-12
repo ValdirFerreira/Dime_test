@@ -1,0 +1,27 @@
+.btn-close-popup {
+    width: 103px;
+    height: 35px;
+    background: #4056b7;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #fefefe;
+    cursor: pointer;
+    border: 0px solid;
+    // @media screen and (max-width: 1020px) {
+    //   position: fixed;
+    //   width: 270px;
+    //   // bottom: 80px;
+    // }
+  }
+
+  ::ng-deep .mat-dialog-title {
+    margin: 0 0 8px;
+    display: block;
+}

@@ -1,0 +1,52 @@
+<div class="container-navbar">
+
+  <div class="menu-mobile" *ngIf="!home">
+    <!-- <img class="img-filtro" src="assets/imagePages/Menu Hamburger.svg" (click)="abrirMenuMobile($event)"> -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <path d="M12 14H28M12 20H28M12 26H28" stroke="black" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+
+
+  <div class="conteudo-navbar">
+
+    <img class="logo-pages" src="assets/imagePages/Logo.svg">
+
+    <!-- <div class="titulo-portal-base">
+      <div class="titulo-page">
+        <div class="titulo-page-item">{{'navbar.titulo1' | translate}}</div>
+        <div class="titulo-page-list">{{this.menuService.nomePage}}</div>
+      </div>
+    </div> -->
+
+  </div>
+
+  <a class="input-formulario" href="#target">
+    <div class="text-input">
+      Ingresar
+    </div>
+  </a>
+
+
+</div>
+
+
+<div class="container-navbar-mobile">
+
+  <div class="menu-mobile" *ngIf="!home">
+    <!-- <img class="img-filtro" src="assets/imagePages/Menu Hamburger.svg" (click)="abrirMenuMobile($event)"> -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <path d="M12 14H28M12 20H28M12 26H28" stroke="black" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+
+
+  <div class="conteudo-navbar" style="margin: auto; width: 100px;">
+
+    <img class="logo-pages-mobile" src="assets/imagePages/Logo.svg">
+
+  </div>
+
+</div>

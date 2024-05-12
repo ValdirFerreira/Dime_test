@@ -1,0 +1,144 @@
+<div class="container-login">
+
+    <div class="container-base-form" *ngIf="desabilitaLogin" >
+        <div class="container-form">
+            <div class="container-formulario-login">
+                <div  class="logo-ipsos">
+
+                </div>
+                <div class="titulo-login">
+                    {{'login.titulo' | translate}}
+                </div>
+                <div class="sub-titulo-login">
+                    {{'login.sub-titulo' | translate}}
+                </div>
+
+                <div class="form-group-login">
+                    <form class="formulario" [formGroup]="loginForm" (submit)="login()">
+                        <div class="form-group">
+                            <div class="desc-input">{{'login.usuario' | translate}}</div>
+                            <input class="input-login input-email" type="text"
+                                placeholder="{{'login.email.placeholder' | translate}}" [ngClass]="{'error-input': loginForm.get('login')?.errors?.['required'] && loginForm.get('login')?.touched ||
+                        loginForm.get('login')?.errors?.['login'] && loginForm.get('Email')?.touched}"
+                                formControlName="login" required id="login" />
+
+                            <label *ngIf="loginForm.get('login')?.errors?.['required'] &&
+                                loginForm.get('login')?.touched" class="error"><i class="fas fa-times-circle red"></i>
+                                {{'login.campoobrigatorio' | translate}}</label>
+
+
+                        </div>
+                        <div class="form-group">
+                            <div class="input-senha-eye"
+                                [ngClass]="{'input-senha-eye-open': mostraSenha, 'input-senha-eye': !mostraSenha}"
+                                (click)="mostrarSenha()"></div>
+                            <div class="desc-input-senha">{{'login.senha' | translate}}</div>
+
+                            <input *ngIf="!mostraSenha" class="input-login input-senha" type="password"
+                                placeholder="***********" [ngClass]="{'error-input': loginForm.get('senha')?.errors?.['required'] &&
+                        loginForm.get('senha')?.touched || usuarioInvalido }" formControlName="senha" id="senha"
+                                required />
+
+                            <input *ngIf="mostraSenha" class="input-login input-senha" type="text"
+                                placeholder="***********" [ngClass]="{'error-input': loginForm.get('senha')?.errors?.['required'] &&
+                        loginForm.get('senha')?.touched || usuarioInvalido }" formControlName="senha" id="senha"
+                                required />
+
+                            <label *ngIf="emailSenhaObrigatorio" class="error"><i class="fas fa-times-circle red"></i>
+                                {{'login.emailSenhaObrigatorio' | translate}}</label>
+
+                            <label *ngIf="loginForm.get('senha')?.errors?.['required'] &&
+                                loginForm.get('senha')?.touched" class="error"><i class="fas fa-times-circle red"></i>
+                                {{'login.campoobrigatorio' | translate}}</label>
+                            <label *ngIf="usuarioInvalido" class="error"><i class="fas fa-times-circle red"></i>
+                                {{'login.usuarioInvalido' | translate}}</label>
+
+                        </div>
+
+
+                        <div>
+                            <a class="esqueceu-senha">
+                                <div (click)="abrirEsqueciSenha()">{{'login.esqueceu.senha' | translate}}</div>
+                            </a>
+                        </div>
+
+                        <div class="container-buttons">
+                            <!-- <button [disabled]="!loginForm.valid" [ngClass]="{'disabled': !loginForm.valid}"
+                                class="btn-login">{{'login.btn.acessar' | translate}}</button> -->
+                            <button [ngClass]="{'disabled': !loginForm.valid}" class="btn-login">{{'login.btn.acessar' |
+                                translate}}</button>
+
+                        </div>
+
+
+                        <footer class="direitos-reservados"> ©{{anoPortal}} <a href="https://www.ipsos.com/en">Ipsos</a>
+                            {{'login.direitos' | translate}}</footer>
+
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<div *ngIf="divRecuperarSenha">
+    <div class="fundo-informacoes" (click)="fecharRecuperarSenha()">
+    </div>
+
+    <div class="container-recuperar-senha">
+        <div class="form-informacoes" *ngIf="!recuperarSenhaEnviado">
+            <div class="container-titulo">
+                <div class="titulo-informacoes">
+                    {{'login.recupera.senha' | translate}}
+                </div>
+                <i class="fas fa-times fa-lg fechar" (click)="fecharRecuperarSenha()"></i>
+            </div>
+            <div class="container-form-panel">
+                <form>
+
+                    <div class="desc-input">{{'login.usuario' | translate}}</div>
+                    <input class="input-login input-email" [ngClass]="{'input-error': errorRecuperacao}"
+                        placeholder="Ex: mymail@mail.com" type="text" name="emailRecover" id="emailRecover" />
+                    <span class="error" *ngIf="errorRecuperacao"><i class="fas fa-times-circle red"></i>
+                        {{mensagemDeErroRecuperacao}}</span>
+                </form>
+            </div>
+            <div class="footer-form-recover" *ngIf="!recuperarSenhaEnviado">
+                <button class="btn-default-recuperarsenha" (click)="recuperarSenha()">
+                    {{'login.enviar' | translate}}
+                </button>
+            </div>
+        </div>
+
+
+        <div class="form-informacoes" *ngIf="recuperarSenhaEnviado">
+            <div class="container-geral">
+                <div class="container-icone">
+                    <img *ngIf="!erroEnvioSolicitacaoSenha" class="img-sucesso-error"
+                        src="assets/images/esqueceu-senha/Sucesso-1.png">
+                    <img *ngIf="erroEnvioSolicitacaoSenha" class="img-sucesso-error"
+                        src="assets/images/esqueceu-senha/Erro-2.png">
+                </div>
+                <div class="container-legendas" *ngIf="!erroEnvioSolicitacaoSenha">
+                    <span class="sucesso-erro-legenda">{{'login.solicita.senha' | translate}}</span>
+                    <span class="sucesso-erro-sublegenda">{{'login.acessar.email.altera.senha' | translate}}</span>
+                </div>
+                <div class="container-legendas" *ngIf="erroEnvioSolicitacaoSenha">
+                    <span class="sucesso-erro-legenda">{{'login.ocorreu.erro' | translate}}</span>
+                    <span class="sucesso-erro-sublegenda">{{'login.contato.suporte' | translate}}</span>
+                </div>
+            </div>
+            <div class="container-footer">
+                <button class="btn-default-fechar-lateral" (click)="fecharRecuperarSenha()">
+                    {{'login.fechar' | translate}}
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>

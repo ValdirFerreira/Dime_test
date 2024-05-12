@@ -1,0 +1,13 @@
+<div class="container-legenda">
+
+
+    <ng-container *ngFor="let item of legendaGrafico;let i = index">
+        <div class="container-texto">
+            <div class="sinal" [ngStyle]="{  background: item.Cor }"></div>
+            <div class="texto-legenda">{{item.Quebra}}</div>
+        </div>
+    </ng-container>
+
+
+
+</div>

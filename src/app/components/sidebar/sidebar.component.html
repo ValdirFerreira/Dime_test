@@ -1,0 +1,458 @@
+<div *ngIf="!home" class="container-sidebar">
+
+
+  <div *ngIf="acessoVolumetria ==1 && filtroService.portalAcesso ==1">
+    <div class="grupo-menu">
+      <div class="container-icone-menu">
+        <div class="one-inativo"
+          [ngClass]="{'awareness-ativo':router.url.includes('/dashboard-one') , 'one-inativo': !router.url.includes('/dashboard-one')}"
+          (click)="selecionaMenu(1)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-one'), 'titulo-menu-inativo':!router.url.includes('/dashboard-one')}">
+        {{'sidebar.menu1' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu">
+      <div class="container-icone-menu">
+        <div class="one-inativo"
+          [ngClass]="{'awareness-ativo':router.url.includes('/dashboard-two') , 'awareness-inativo': !router.url.includes('/dashboard-two')}"
+          (click)="selecionaMenu(2)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-two'), 'titulo-menu-inativo':!router.url.includes('/dashboard-two')}">
+        {{'sidebar.menu2' | translate}}</div>
+    </div>
+
+
+    <div class="grupo-menu">
+      <div class="container-icone-menu">
+        <div class="funill-inativo"
+          [ngClass]="{'funill-ativo':router.url.includes('/dashboard-three') , 'funill-inativo': !router.url.includes('/dashboard-three')}"
+          (click)="selecionaMenu(3)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-three'), 'titulo-menu-inativo': !router.url.includes('/dashboard-three')}">
+        {{'sidebar.menu3' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu">
+      <div class="container-icone-menu">
+        <div class="imagem-pura-inativo"
+          [ngClass]="{'imagem-pura-ativo':router.url.includes('/dashboard-four') , 'imagem-pura-inativo': !router.url.includes('/dashboard-four')}"
+          (click)="selecionaMenu(4)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-four'), 'titulo-menu-inativo':!router.url.includes('/dashboard-four')}">
+        {{'sidebar.menu4' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu">
+      <div class="container-icone-menu">
+        <div class="brand-creator-inativo"
+          [ngClass]="{'brand-creator-ativo':router.url.includes('/dashboard-six') , 'brand-creator-inativo': !router.url.includes('/dashboard-six')}"
+          (click)="selecionaMenu(6)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-six'), 'titulo-menu-inativo':!router.url.includes('/dashboard-six')}">
+        {{'sidebar.menu6' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu">
+      <div class="container-icone-menu">
+        <div class="comunicacao-inativo"
+          [ngClass]="{'comunicacao-ativo':router.url.includes('/dashboard-seven') , 'comunicacao-inativo': !router.url.includes('/dashboard-seven')}"
+          (click)="selecionaMenu(7)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-seven'), 'titulo-menu-inativo':!router.url.includes('/dashboard-seven')}">
+        {{'sidebar.menu7' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu">
+      <div class="container-icone-menu">
+        <div class="calendario-inativo"
+          [ngClass]="{'calendario-ativo':router.url.includes('/calendar') , 'calendario-inativo': !router.url.includes('/calendar')}"
+          (click)="selecionaMenu(11)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/calendar'), 'titulo-menu-inativo':!router.url.includes('/calendar')}">
+        {{'sidebar.menu11' | translate}}</div>
+    </div>
+
+    <div  class="grupo-menu">
+      <div class="container-icone-menu">
+        <div class="brand-creator-inativo"
+          [ngClass]="{'brand-creator-ativo':router.url.includes('/tarefas-diaria') , 'brand-creator-inativo': !router.url.includes('/tarefas-diaria')}"
+          (click)="selecionaMenu(12)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/tarefas-diaria'), 'titulo-menu-inativo':!router.url.includes('/tarefas-diaria')}">
+        {{'sidebar.menu12' | translate}}</div>
+    </div>
+
+    <div *ngIf="administrador" class="grupo-menu">
+      <div class="container-icone-menu">
+        <div class="brand-creator-inativo"
+          [ngClass]="{'brand-creator-ativo':router.url.includes('/cadastro-analista') , 'brand-creator-inativo': !router.url.includes('/cadastro-analista')}"
+          (click)="selecionaMenu(13)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/cadastro-analista'), 'titulo-menu-inativo':!router.url.includes('/cadastro-analista')}">
+        {{'sidebar.menu13' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu" *ngIf="administrador">
+      <div class="container-icone-menu">
+        <div class="comunicacao-inativo"
+          [ngClass]="{'comunicacao-ativo':router.url.includes('/usuario') , 'comunicacao-inativo': !router.url.includes('/usuario')}"
+          (click)="selecionaMenu(10)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/usuario'), 'titulo-menu-inativo':!router.url.includes('/usuario')}">
+        {{'sidebar.menu10' | translate}}</div>
+    </div>
+
+  </div>
+
+  <div *ngIf="acessoBMR ==1 && filtroService.portalAcesso ==2 && administrador">
+    <div class="grupo-menu">
+      <div class="container-icone-menu">
+        <div class="brand-creator-inativo"
+          [ngClass]="{'brand-creator-ativo':router.url.includes('/importacao') , 'brand-creator-inativo': !router.url.includes('/importacao')}"
+          (click)="selecionaMenu(14)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/importacao'), 'titulo-menu-inativo':!router.url.includes('/importacao')}">
+        {{'sidebar.menu14' | translate}}</div>
+    </div>
+  </div>
+
+
+  <div class="grupo-menu">
+    <div class="container-icone-menu">
+      <div class="comunicacao-sair" (click)="sairPortal()">
+      </div>
+    </div>
+    <div class="titulo-menu-inativo">
+      {{'sidebar-menu-sair' | translate}}</div>
+  </div>
+
+
+
+</div>
+
+<!-- MENU CENTRAL PARINA ESCOLHAS  -->
+<div class="base-sidebar-home">
+
+  <div *ngIf="home" class="container-sidebar-home">
+
+    <!-- <div class="grupo-menu-home" (click)="selecionaMenu(1)">
+      <div class="container-icone-menu">
+        <div class="one-inativo"
+          [ngClass]="{'one-ativo':router.url.includes('/dashboard-one') , 'one-inativo': !router.url.includes('/dashboard-one')}">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu1' | translate}}</div>
+    </div> -->
+    <!-- <div class="grupo-menu-home" (click)="selecionaMenu(1)">
+      <div class="container-icone-menu">
+        <div class="one-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu1' | translate}}</div>
+    </div>
+
+
+    <div class="grupo-menu-home" (click)="selecionaMenu(2)">
+      <div class="container-icone-menu">
+        <div class="home-awareness-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu2' | translate}}</div>
+    </div>
+
+
+    <div class="grupo-menu-home" (click)="selecionaMenu(3)">
+      <div class="container-icone-menu">
+        <div class="home-funill-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu3' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu-home" (click)="selecionaMenu(4)">
+      <div class="container-icone-menu">
+        <div class="home-imagem-pura-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu4' | translate}}</div>
+    </div> -->
+
+    <!-- <div class="grupo-menu-home" (click)="selecionaMenu(5)">
+      <div class="container-icone-menu">
+        <div class="home-posicao-marca-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu5' | translate}}</div>
+    </div> -->
+
+    <!-- <div class="grupo-menu-home" (click)="selecionaMenu(6)">
+      <div class="container-icone-menu">
+        <div class="home-brand-creator-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu6' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu-home" (click)="selecionaMenu(7)">
+      <div class="container-icone-menu">
+        <div class="home-comunicacao-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu7' | translate}}</div>
+    </div>
+
+
+
+    <div class="grupo-menu-home" (click)="selecionaMenu(11)">
+      <div class="container-icone-menu">
+        <div class="home-brand-creator-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu11' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu-home" (click)="selecionaMenu(12)">
+      <div class="container-icone-menu">
+        <div class="home-brand-creator-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu12' | translate}}</div>
+    </div>
+     <div class="grupo-menu-home" (click)="selecionaMenu(13)">
+      <div class="container-icone-menu">
+        <div class="home-brand-creator-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu13' | translate}}</div>
+    </div>
+
+
+    <div *ngIf="administrador" class="grupo-menu-home" (click)="selecionaMenu(10)">
+      <div class="container-icone-menu">
+        <div class="home-comunicacao-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu10' | translate}}</div>
+    </div> -->
+
+    <div class="grupo-menu-home" (click)="selecionaVolumetria(2)" *ngIf="acessoVolumetria==1">
+      <div class="container-icone-menu">
+        <div class="one-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu-volumetria' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu-home" (click)="selecionaBMR(14)" *ngIf="acessoBMR==1">
+      <div class="container-icone-menu">
+        <div class="one-inativo">
+        </div>
+      </div>
+      <div class="titulo-menu-inativo">
+        {{'sidebar.menu-bmr' | translate}}</div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="container-menu-lateral-mobile" id="menu-mobile">
+  <div class="container-logo-page-mobile">
+
+    <div> <img class="logo-leroy-page" src="assets/imagePages/logo-pequeno.svg"></div>
+
+    <div (click)="closeMenu()"><img class="fechar-menu-icone" src="assets/imagePages/fechar-menu.svg"></div>
+  </div>
+
+  <div *ngIf="acessoVolumetria ==1 && filtroService.portalAcesso ==1">
+    <div class="grupo-menu" (click)="selecionaMenu(1)">
+      <div class="container-icone-menu">
+        <div class="one-inativo"
+          [ngClass]="{'one-ativo':router.url.includes('/dashboard-one') , 'one-inativo': !router.url.includes('/dashboard-one')}"
+          (click)="selecionaMenu(1)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-two'), 'titulo-menu-inativo':!router.url.includes('/dashboard-two')}">
+        {{'sidebar.menu1' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu" (click)="selecionaMenu(2)">
+      <div class="container-icone-menu">
+        <div class="one-inativo"
+          [ngClass]="{'awareness-ativo':router.url.includes('/dashboard-two') , 'awareness-inativo': !router.url.includes('/dashboard-two')}"
+          (click)="selecionaMenu(2)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-two'), 'titulo-menu-inativo':!router.url.includes('/dashboard-two')}">
+        {{'sidebar.menu2' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu" (click)="selecionaMenu(3)">
+      <div class="container-icone-menu">
+        <div class="funill-inativo"
+          [ngClass]="{'funill-ativo':router.url.includes('/dashboard-three') , 'funill-inativo': !router.url.includes('/dashboard-three')}"
+          (click)="selecionaMenu(3)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-three'), 'titulo-menu-inativo': !router.url.includes('/dashboard-three')}">
+        {{'sidebar.menu3' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu" (click)="selecionaMenu(4)">
+      <div class="container-icone-menu">
+        <div class="imagem-pura-inativo"
+          [ngClass]="{'imagem-pura-ativo':router.url.includes('/dashboard-four') , 'imagem-pura-inativo': !router.url.includes('/dashboard-four')}"
+          (click)="selecionaMenu(4)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-four'), 'titulo-menu-inativo':!router.url.includes('/dashboard-four')}">
+        {{'sidebar.menu4' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu" (click)="selecionaMenu(6)">
+      <div class="container-icone-menu">
+        <div class="brand-creator-inativo"
+          [ngClass]="{'brand-creator-ativo':router.url.includes('/dashboard-six') , 'brand-creator-inativo': !router.url.includes('/dashboard-six')}"
+          (click)="selecionaMenu(6)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-six'), 'titulo-menu-inativo':!router.url.includes('/dashboard-six')}">
+        {{'sidebar.menu6' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu" (click)="selecionaMenu(7)">
+      <div class="container-icone-menu">
+        <div class="comunicacao-inativo"
+          [ngClass]="{'comunicacao-ativo':router.url.includes('/dashboard-seven') , 'comunicacao-inativo': !router.url.includes('/dashboard-seven')}"
+          (click)="selecionaMenu(7)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/dashboard-seven'), 'titulo-menu-inativo':!router.url.includes('/dashboard-seven')}">
+        {{'sidebar.menu7' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu" (click)="selecionaMenu(11)">
+      <div class="container-icone-menu">
+        <div class="calendario-inativo"
+          [ngClass]="{'calendario-ativo':router.url.includes('/calendar') , 'calendario-inativo': !router.url.includes('/calendar')}"
+          (click)="selecionaMenu(11)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/calendar'), 'titulo-menu-inativo':!router.url.includes('/calendar')}">
+        {{'sidebar.menu11' | translate}}</div>
+    </div>
+
+    <div class="grupo-menu" (click)="selecionaMenu(12)">
+      <div class="container-icone-menu">
+        <div class="brand-creator-inativo"
+          [ngClass]="{'brand-creator-ativo':router.url.includes('/tarefas-diaria') , 'brand-creator-inativo': !router.url.includes('/tarefas-diaria')}"
+          (click)="selecionaMenu(12)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/tarefas-diaria'), 'titulo-menu-inativo':!router.url.includes('/tarefas-diaria')}">
+        {{'sidebar.menu12' | translate}}</div>
+    </div>
+
+    <div *ngIf="administrador" class="grupo-menu" (click)="selecionaMenu(13)">
+      <div class="container-icone-menu">
+        <div class="brand-creator-inativo"
+          [ngClass]="{'brand-creator-ativo':router.url.includes('/cadastro-analista') , 'brand-creator-inativo': !router.url.includes('/cadastro-analista')}"
+          (click)="selecionaMenu(13)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/cadastro-analista'), 'titulo-menu-inativo':!router.url.includes('/cadastro-analista')}">
+        {{'sidebar.menu13' | translate}}</div>
+    </div>
+
+    <div *ngIf="administrador" class="grupo-menu" (click)="selecionaMenu(10)">
+      <div class="container-icone-menu">
+        <div class="comunicacao-inativo"
+          [ngClass]="{'comunicacao-ativo':router.url.includes('/usuario') , 'comunicacao-inativo': !router.url.includes('/usuario')}"
+          (click)="selecionaMenu(10)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/usuario'), 'titulo-menu-inativo':!router.url.includes('/usuario')}">
+        {{'sidebar.menu10' | translate}}</div>
+    </div>
+  </div>
+
+  <div *ngIf="acessoBMR ==1 && filtroService.portalAcesso ==2">
+
+    <div class="grupo-menu" (click)="selecionaMenu(14)">
+      <div class="container-icone-menu">
+        <div class="brand-creator-inativo"
+          [ngClass]="{'brand-creator-ativo':router.url.includes('/importacao') , 'brand-creator-inativo': !router.url.includes('/importacao')}"
+          (click)="selecionaMenu(14)">
+        </div>
+      </div>
+      <div
+        [ngClass]="{'titulo-menu': router.url.includes('/importacao'), 'titulo-menu-inativo':!router.url.includes('/importacao')}">
+        {{'sidebar.menu14' | translate}}</div>
+    </div>
+
+  </div>
+
+  <div class="grupo-menu">
+    <div class="container-icone-menu">
+      <div class="comunicacao-sair" (click)="sairPortal()">
+      </div>
+    </div>
+    <div class="titulo-menu-inativo">
+      {{'sidebar-menu-sair' | translate}}</div>
+  </div>
+
+
+  <!-- <div class="container-icone-menu-sair" (click)="sairPortal()">
+    <img class="icone-menu-sair" src="assets/imagePages/icone-sair.png">
+  </div> -->
+
+
+
+</div>

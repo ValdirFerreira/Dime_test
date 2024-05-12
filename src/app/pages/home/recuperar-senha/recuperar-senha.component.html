@@ -1,0 +1,100 @@
+<div class="alinha-form" *ngIf="frmActive">
+  <form class="container-form" [formGroup]="frmSignup" (submit)="submit()">
+    <div class="ajustar-logo">
+      <img style="width: 155px;" src="assets/login/logo-ipsos.svg" alt="logo">
+    </div>
+
+    <div class="container-titulo">
+      <span class="titulo">{{'recuperar.alteracao.senha' | translate}}</span>
+    </div>
+
+    <div class="container-geral">
+      <label for="password" [ngClass]="frmSignup.controls['password'].invalid ? 'warn' : ''">Senha:</label>
+      <input id="password" formControlName="password" type="password" class="input"
+        [ngClass]="frmSignup.controls['password'].invalid ? 'input-error' : ''">
+
+      <label class="col"
+        [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('minlength')  ? 'warn' : 'success'">
+        <i class="icons" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+             frmSignup.controls['password'].hasError('minlength') ? 'fas fa-times-circle' :
+             'fas fa-check-circle'"></i>
+             {{'recuperar.valida.qtd.caracteres' | translate}}
+      </label>
+      <label class="col"
+        [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasNumber')  ? 'warn' : 'success'">
+        <i class="icons" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+             frmSignup.controls['password'].hasError('hasNumber') ? 'fas fa-times-circle' :
+             'fas fa-check-circle'"></i>
+             {{'recuperar.valida.qtd.numeros' | translate}}
+      </label>
+      <label class="col"
+        [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasCapitalCase')  ? 'warn' : 'success'">
+        <i class="icons" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+             frmSignup.controls['password'].hasError('hasCapitalCase') ? 'fas fa-times-circle' :
+             'fas fa-check-circle'"></i>
+             {{'recuperar.valida.qtd.maiuscula' | translate}}
+      </label>
+
+      <label class="col"
+        [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasSmallCase')  ? 'warn' : 'success'">
+        <i class="icons" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+             frmSignup.controls['password'].hasError('hasSmallCase') ? 'fas fa-times-circle' :
+             'fas fa-check-circle'"></i>
+             {{'recuperar.valida.qtd.minuscula' | translate}}
+      </label>
+
+      <label class="col"
+        [ngClass]="frmSignup.controls['password'].hasError('required') || frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'warn' : 'success'">
+        <i class="icons" [ngClass]="frmSignup.controls['password'].hasError('required') ||
+             frmSignup.controls['password'].hasError('hasSpecialCharacters') ? 'fas fa-times-circle' :
+             'fas fa-check-circle'"></i>
+             {{'recuperar.valida.qtd.caractere.especial' | translate}}
+      </label>
+
+      <label for="confirmPassword" class="box-confirm-password"
+        [ngClass]="frmSignup.controls['confirmPassword'].invalid ? 'warn' : ''">
+        {{'recuparar.confirme.senha' | translate}}</label>
+      <input id="confirmPassword" formControlName="confirmPassword" type="password" class="input"
+        [ngClass]="frmSignup.controls['confirmPassword'].invalid ? 'is-invalid' : ''">
+      <label class="warn" *ngIf="frmSignup.controls['confirmPassword'].hasError('required')">
+        {{'recuperar.campo.obrigatorio' | translate}}
+      </label>
+      <label class="warn" *ngIf="frmSignup.controls['confirmPassword'].hasError('NoPassswordMatch')">
+        {{'recuperar.senha.nao.confere' | translate}}
+      </label>
+
+      <div class="container-footer">
+        <button [disabled]="frmSignup.invalid" type="submit" class="btn-default-fechar-lateral">{{'recupera.alterar.senha' | translate}}</button>
+        <br>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="frmErro || frmSucesso">
+  <form class="container-erro-sucesso" [formGroup]="frmSignup" (submit)="submit()">
+    <div class="ajustar-logo">
+      <img style="width: 155px;" src="assets/login/logo-ipsos.svg" alt="logo">
+    </div>
+
+    <div class="container-central">
+      <div class="container-icone">
+        <img *ngIf="frmSucesso" class="img-sucesso-error" src="assets/esqueceu-senha/Sucesso-1.png">
+        <img *ngIf="frmErro" class="img-sucesso-error" src="assets/esqueceu-senha/Erro-2.png">
+      </div>
+      <div class="container-legendas" *ngIf="frmSucesso">
+        <span class="sucesso-erro-legenda">{{'recuperar.alteracao.sucesso' | translate}}</span>
+        <span class="sucesso-erro-sublegenda">{{'recuperar.texto.redirecionado' | translate}}</span>
+      </div>
+      <div class="container-legendas" *ngIf="frmErro">
+        <span class="sucesso-erro-legenda">{{'recuperar.texto.erro' | translate}}</span>
+        <span class="sucesso-erro-sublegenda">{{'recuperar.contato.suporte' | translate}}</span>
+      </div>
+      <div class="container-footer-sucesso-erro" *ngIf="frmErro">
+        <button (click)="redirectLogin()" class="btn-default-fechar-lateral">
+          {{'recuperar.voltar' | translate}}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

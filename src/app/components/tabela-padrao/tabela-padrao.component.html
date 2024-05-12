@@ -1,0 +1,80 @@
+<div *ngIf="ativaTela">
+  <div class="container-tabela-principal">
+    <table>
+      <thead>
+        <tr class="titulo">
+          <th class="coluna" *ngFor="let item of tabela.Titulos">
+            {{item}}
+          </th>
+        </tr>
+      </thead>
+      <tbody *ngIf="paginacao">
+
+        <tr class="linha" *ngFor="let item of tabela.Linhas | paginate: config; let i = index;">
+          <ng-container *ngFor="let coluna of item.Coluna; let y = index">
+
+            <!-- <th class="primeira-coluna" *ngIf="y === 0">
+              <span *ngIf="coluna != '0' && coluna.length != 0">{{coluna}}</span>
+              <span *ngIf="(coluna == '0' || coluna.length == 0) && item.Coluna[0] != 'Muestra'">-</span>
+              <span *ngIf="(coluna == '0' || coluna.length == 0) && item.Coluna[0] == 'Muestra'">N/A</span>
+            </th> -->
+
+            <td [ngClass]="{'linha-inside': i%2!==0, '': i%2===0}">
+              <span>{{coluna}}</span>
+              <!-- <span *ngIf="(coluna == '0' || coluna.length == 0) && item.Coluna[0] != 'Muestra'">-</span>
+              <span *ngIf="(coluna == '0' || coluna.length == 0) && item.Coluna[0] == 'Muestra'">N/A</span> -->
+            </td>
+
+          </ng-container>
+        </tr>
+
+      </tbody>
+
+      <tbody *ngIf="!paginacao">
+
+        <tr class="linha" *ngFor="let item of tabela.Linhas let i = index;">
+          <ng-container *ngFor="let coluna of item.Coluna; let y = index">
+
+            <!-- <th class="primeira-coluna" *ngIf="y === 0">
+              <span *ngIf="coluna != '0' && coluna.length != 0">{{coluna}}</span>
+              <span *ngIf="(coluna == '0' || coluna.length == 0) && item.Coluna[0] != 'Muestra'">-</span>
+              <span *ngIf="(coluna == '0' || coluna.length == 0) && item.Coluna[0] == 'Muestra'">N/A</span>
+            </th>
+
+            <td *ngIf="y !== 0 && visualizacaoPorMedia">
+              <span *ngIf="coluna != '0' && coluna.length != 0 && item.Coluna[0] == 'Muestra'">{{coluna}}</span>
+              <span *ngIf="coluna != '0' && coluna.length != 0 && item.Coluna[0] != 'Muestra'">{{coluna | number : '.1-1'}}</span>
+              <span *ngIf="(coluna == '0' || coluna.length == 0) && item.Coluna[0] != 'Muestra'">-</span>
+              <span *ngIf="(coluna == '0' || coluna.length == 0) && item.Coluna[0] == 'Muestra'">N/A</span>
+            </td> -->
+
+            <td *ngIf="!visualizacaoPorMedia">
+              <span *ngIf="coluna != '0' && coluna.length != 0 && item.Coluna[0] == 'Muestra'">{{coluna}}</span>
+              <span *ngIf="coluna != '0' && coluna.length != 0 && item.Coluna[0] != 'Muestra'">{{coluna | number : '.1-1'}}</span>
+              <span *ngIf="(coluna == '0' || coluna.length == 0) && item.Coluna[0] != 'Muestra'">-</span>
+              <span *ngIf="(coluna == '0' || coluna.length == 0) && item.Coluna[0] == 'Muestra'">N/A</span>
+            </td>
+
+          </ng-container>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <div class="tabela-footer" *ngIf="paginacao">
+    <label class="mostrar">Mostrar</label>
+    <ng-select [appendTo]="'body'" (change)="mudarItemsPorPage()" [(ngModel)]="itemsPorPagina" [clearable]="false"
+      [searchable]="false" class="mostrar-drop">
+      <!-- <ng-option [value]="5">5</ng-option> -->
+      <ng-option [value]="10">10</ng-option>
+      <ng-option [value]="50">50</ng-option>
+      <ng-option [value]="100">100</ng-option>
+    </ng-select>
+
+    <div class="container-pagination">
+      <pagination-controls id="{{this.id}}" previousLabel="Anterior" nextLabel="Próximo" [responsive]="true"
+        (pageChange)="mudarPage($event)">
+      </pagination-controls>
+    </div>
+  </div>
+</div>
