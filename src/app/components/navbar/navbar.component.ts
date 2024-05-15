@@ -40,9 +40,9 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   mesAnoAtualizado: string;
-
   filtroMobile: boolean = false;
-
+  menuListMobileOpen: boolean = false;
+  activeMenu: boolean = false;
 
   ngOnInit(): void {
 
@@ -76,6 +76,17 @@ export class NavbarComponent implements OnInit {
   }
 
 
+  openMenu() {
+    this.activeMenu = true;
+    if (this.menuListMobileOpen) {
+      this.menuListMobileOpen = false;
+    }
+    else {
+      this.menuListMobileOpen = true;
+    }
+  }
+
+
   openFullscreen() {
     if (this.elem.requestFullscreen) {
       this.elem.requestFullscreen();
@@ -92,7 +103,7 @@ export class NavbarComponent implements OnInit {
 
     this.filtroService.modeFullscreen = true;
   }
-/* Close fullscreen */
+  /* Close fullscreen */
   closeFullscreen() {
     if (this.document.exitFullscreen) {
       this.document.exitFullscreen();

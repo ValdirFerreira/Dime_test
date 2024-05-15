@@ -183,7 +183,7 @@
     }
 
     .container-card {
-        max-height: 412px;
+        // max-height: 412px;
 
         @media screen and (max-width: 1030px) {
             display: none;
@@ -699,7 +699,7 @@
 
     @media screen and (max-width: 1030px) {
         min-width: 110px;
-        min-height: 152px;
+        min-height: 218px;
     }
 }
 
@@ -1225,8 +1225,8 @@
         .inFade
         {
             animation-name: fadeAltura;
-            animation-duration: 0.5s;
-            // transition: height 0.6s ease;
+            animation-duration: 0.1s;
+            transition: height 0.1s ease;
         }
 
         @keyframes fadeAltura {
@@ -1234,7 +1234,7 @@
                 height: 0px;
             }
             to {
-                height: 40px;
+                height: 50px;
             }
         }
     }

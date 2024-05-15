@@ -14,7 +14,6 @@
 }
 
 .container-navbar-mobile {
-
   display: none;
   @media screen and (max-width: 1030px) {
     // justify-content: center;
@@ -26,9 +25,7 @@
   }
 }
 
-
-.container-navbar
-{
+.container-navbar {
   display: flex;
   @media screen and (max-width: 1030px) {
     // justify-content: center;
@@ -53,12 +50,12 @@
   z-index: 9999;
   width: -webkit-fill-available;
 
- 
-
   .conteudo-navbar {
     height: 72px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
     @media screen and (max-width: 1020px) {
       //  display: none;
@@ -94,7 +91,7 @@
 }
 
 .logo-pages {
- padding: 16px 16px 16px 72px;
+  padding: 16px 16px 16px 72px;
   padding: 14px;
   width: 99px;
   height: 48px;
@@ -104,7 +101,7 @@
 
 .logo-pages-mobile {
   cursor: pointer;
- }
+}
 
 .base-screen {
   display: flex;
@@ -125,9 +122,25 @@
 
 .titulo-page-item {
   margin-right: 32px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  color: #21222c;
+
+  a {
+    text-decoration: none;
+    color: #21222c;
+  }
 }
 .titulo-page-list {
   display: list-item;
+}
+
+a {
+  text-decoration: none;
+  color: #21222c;
 }
 
 .titulo-page-list::marker {
@@ -176,11 +189,10 @@
 
 .menu-mobile {
   display: none;
-  // border: 1px solid #f8f8f8;
   box-sizing: border-box;
   border-radius: 4px;
-  // width: 68px;
   height: 58px;
+  padding: 4px;
 
   @media screen and (max-width: 1020px) {
     display: flex;
@@ -384,5 +396,103 @@
     font-weight: 500;
     line-height: 100%; /* 16px */
     letter-spacing: 0.5px;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.menu-mobile-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  animation: slideRight 0.5s ease forwards;
+  z-index: 999999;
+
+  display: none;
+  @media screen and (max-width: 1020px) {
+    display: block;
+  }
+}
+
+@keyframes slideRightClose {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.menu-mobile-list-close {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  animation: slideRightClose 0.5s ease forwards;
+  z-index: 999999;
+
+  display: none;
+  @media screen and (max-width: 1020px) {
+    display: block;
+  }
+}
+
+.header-mobile-menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0px 16px 0px;
+  border-bottom: 1px solid #e3e4e8;
+  margin: 0px 12px 0px 14px;
+  top: 6px;
+  position: relative;
+}
+
+.close-menu-mobile {
+  margin: 8px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../assets/imagePages/Clear.svg);
+  background-repeat: no-repeat;
+}
+
+.set-menu-mobile {
+  margin: 8px;
+  cursor: pointer;
+  width: 24px;
+  height: 40px;
+  background-image: url(../../../assets/imagePages/Chevron.svg);
+  background-repeat: no-repeat;
+}
+
+.container-logo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: left;
+  }
+
+  .subTitle {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
   }
 }
