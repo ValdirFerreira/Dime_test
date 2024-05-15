@@ -22,10 +22,14 @@
 
 
                 <div class="search-container">
-                    <input type="text" class="txt-search" placeholder="Buscador de entidades">
+                    <input type="text" [maxLength]="60" class="txt-search" placeholder="Buscador de entidades">
                     <button class="search-btn">Buscar Entidades</button>
                 </div>
 
+                <div class="search-container-mobile">
+                    <input type="text" [maxLength]="29" class="txt-search" placeholder="Buscador de entidades">
+                    <button class="search-btn">Buscar</button>
+                </div>
 
             </div>
         </div>

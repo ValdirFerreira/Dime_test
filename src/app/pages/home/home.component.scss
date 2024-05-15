@@ -153,11 +153,16 @@
 
         flex-shrink: 0; /* Impede que o container seja reduzido além do seu tamanho máximo de conteúdo */
 
+        @media screen and (max-width: 1030px) {
+            height: 80vh !important; /* A altura será 100% da altura da janela de visualização */
+        }
+
         .wrapper-img-box {
             padding-top: 118px;
 
             @media screen and (max-width: 1030px) {
                 padding: 80px 20px 0px 20px;
+                height: 80vh !important; /* A altura será 100% da altura da janela de visualização */
             }
         }
     }
@@ -944,37 +949,72 @@
 }
 
 .search-container {
-    display: flex;
+    @media screen and (max-width: 1030px) {
+        display: none;
+    }
+    width: 741px;
     margin: auto;
-    max-width: 741px;
+}
+
+
+.search-container-mobile
+{
+    display: none;
+    @media screen and (max-width: 1030px) {
+        width: 354px;
+        margin: 0px;
+        display: block;
+    }
 }
 
 /* Estilos para o Input */
 .search-container input {
-    width: calc(100% - 150px); /* Ajuste conforme necessário */
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px; /* Arredondamento apenas no lado esquerdo */
+    border-radius: 8px; /* Arredondamento apenas no lado esquerdo */
     outline: 0px solid transparent;
     outline: none;
+    
 }
+
+.search-container-mobile input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Arredondamento apenas no lado esquerdo */
+    outline: 0px solid transparent;
+    outline: none;
+    
+}
+
+
 
 /* Estilos para o Botão de Buscar Entidades */
 .search-btn {
     background: var(--Brand-Colour-Byzantine-Blue, #4c58ca);
     border: none;
     padding: 10px 20px;
-    border-radius: 0 5px 5px 0; /* Arredondamento apenas no lado direito */
     cursor: pointer;
-
     color: var(--Gray-00, #fff);
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
-    // line-height: 40px; /* 285.714% */
     text-transform: capitalize;
     width: 168px;
+    position: relative;
+    left: 590px;
+    top: -63px;
+    border-radius: 5px;
+    height: 58px;
+
+    @media screen and (max-width: 1030px) {
+        left: 274px;
+        width:97px;
+    }
+    
 }
 
 .txt-search {
@@ -983,6 +1023,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 26px; /* 144.444% */
+    height: 46px;
 }
 
 .input-formulario,
