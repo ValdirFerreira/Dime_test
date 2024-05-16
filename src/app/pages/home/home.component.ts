@@ -6,6 +6,8 @@ import { LoginService } from 'src/app/services/login.service';
 
 import { Clipboard } from '@angular/cdk/clipboard';
 import { AcoordionModel } from 'src/app/models/AcoordionModel/AcoordionModel';
+import { DialogContentComponent } from 'src/app/components/dialog-content/dialog-content.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -46,7 +48,8 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private loginService: LoginService,
-    private clipboard: Clipboard
+    private clipboard: Clipboard,
+    public dialog: MatDialog,
   ) {
 
 
@@ -457,6 +460,23 @@ export class HomeComponent implements OnInit {
 
 
 
+
+  openPopup() {
+    this.openDialog(1, 1, '1');
+  }
+
+
+  openDialog(dialogType: number, idEdicaoEntrevistador: number, area: string) {
+    // reference https://material.angular.io/components/dialog/examples    
+    const dialogRef = this.dialog.open(DialogContentComponent);
+    dialogRef.componentInstance.dialogType = dialogType;
+    dialogRef.componentInstance.IdEdicaoEntrevistador = idEdicaoEntrevistador
+    dialogRef.componentInstance.Area = area;
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+    //  const dialogRef = this.dialog.open(SearchDialogComponent, { disableClose: true });
+  }
 
 
 

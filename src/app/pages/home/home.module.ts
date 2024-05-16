@@ -14,6 +14,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TraducaoService } from 'src/app/services/traducao-service';
 import { NavbarModule } from 'src/app/components/navbar/navbar.module';
 import { FooterBottomModule } from 'src/app/components/footer-bottom/footer-bottom.module';
+import { DialogContentModule } from 'src/app/components/dialog-content/dialog-content.module';
 
 
 

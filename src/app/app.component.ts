@@ -51,6 +51,9 @@ export class AppComponent {
   }
 
 
+  
+
+
   callCheckUserLogged() {
 
     if (this.router.url != '/' && !this.router.url.toLowerCase().includes('/home/login')) {

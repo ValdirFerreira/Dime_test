@@ -17,6 +17,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { Session } from './pages/home/guards/session';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TraducaoService } from './services/traducao-service';
+import { DialogContentModule } from './components/dialog-content/dialog-content.module';
 
 
 const RxJS = [LoaderInterceptor, HTTPStatus];
@@ -35,7 +36,7 @@ const RxJS = [LoaderInterceptor, HTTPStatus];
     NgSelectModule,
     NgxFileDropModule,
     AppRoutingModule,
-  
+    DialogContentModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
