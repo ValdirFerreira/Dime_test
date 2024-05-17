@@ -10,6 +10,9 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -27,7 +30,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
-
+    BrowserModule,
+    NgxPaginationModule,
+    NgSelectModule,
 
   ],
   exports: [

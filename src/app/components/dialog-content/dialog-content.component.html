@@ -1,20 +1,138 @@
-<div >
-  <h2 mat-dialog-title class="title-dialog">Aprovação do Entrevistador</h2>
-  <mat-dialog-content class="mat-typography" >
-    <div class="sub-title-dialog">Deseja aprovar o entrevistador? Será enviado um e-mail com os acessos inseridos aqui
+<div>
+  <div class="header-dialog">
+    <div>
+      <h2 mat-dialog-title class="title-dialog">Resultados</h2>
+    </div>
+    <div mat-dialog-close class="icone-close-dialog">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M15 9L12 12M12 12L9 15M12 12L15 15M12 12L9 9.00001M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+          stroke="#21222C" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </div>
+  </div>
+
+
+
+  <mat-dialog-content class="mat-typography">
+    <!-- <div class="sub-title-dialog">Deseja aprovar o entrevistador? Será enviado um e-mail com os acessos inseridos aqui
       para
-      aprovação!</div>
+      aprovação!</div> -->
 
     <!-- // Conteudo aqui -->
 
+
+
+    <div class="container-tabela-principal">
+      <table>
+
+        <tbody>
+
+          <tr class="table-data-info" *ngFor="let item of tabela | paginate: config; let i = index;">
+
+            <div class="table-data-info">
+
+              <div class="wrapper">
+                <ng-container *ngFor="let coluna of item.tableData; let y = index">
+
+
+                  <div class="box">
+                    <div class="base-box">
+
+                      <div class="box-info">
+
+                        <div class="title">
+                          {{coluna.RazonSocial}}
+                        </div>
+
+                        <div class="box-info-extra">
+
+                          <div class="group-info-extra">
+
+                            <div class="title-extra">
+                              Contacto
+                            </div>
+
+                            <div class="sub-extra">
+                              +00 0000-0000
+                            </div>
+
+                          </div>
+
+                          <div class="group-info-extra">
+
+                            <div class="title-extra">
+                              Cargo
+                            </div>
+
+                            <div class="sub-extra">
+                              Gerente
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+                      </div>
+
+                      <div class="details-table">
+                        <div class="box-details" >
+                          <div class="txt-details">
+                            Detalhes
+                          </div>
+
+                          <div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M10 16L14 12L10 8" stroke="#727588" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                              
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </ng-container>
+              </div>
+
+            </div>
+
+
+          </tr>
+
+        </tbody>
+
+
+      </table>
+    </div>
+    <div class="tabela-footer">
+      <!-- <label class="mostrar">Mostrar</label>
+      <ng-select [appendTo]="'body'" (change)="mudarItemsPorPage()" [(ngModel)]="itemsPorPagina" [clearable]="false"
+        [searchable]="false" class="mostrar-drop">
+          <ng-option [value]="10">10</ng-option>
+        <ng-option [value]="50">50</ng-option>
+        <ng-option [value]="100">100</ng-option>
+      </ng-select> -->
+
+      <div class="container-pagination">
+        <pagination-controls id="{{this.id}}" previousLabel="" nextLabel="" [responsive]="true"
+          (pageChange)="mudarPage($event)">
+        </pagination-controls>
+      </div>
+    </div>
+
+
+
   </mat-dialog-content>
 
-  <mat-dialog-actions align="end">
+  <!-- <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close class="btn-cancelar">Cancelar ação</button>
-    <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="btn-enviar" (click)="aprovar()">Aprovar e
-      enviar</button> -->
-      <button mat-button  cdkFocusInitial class="btn-enviar" >Aprovar e
-        enviar</button>
-  </mat-dialog-actions>
-</div>
 
+    <button mat-button cdkFocusInitial class="btn-enviar">Aprovar e
+      enviar</button>
+  </mat-dialog-actions> -->
+</div>
