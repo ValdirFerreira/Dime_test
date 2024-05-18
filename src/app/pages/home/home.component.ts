@@ -462,16 +462,14 @@ export class HomeComponent implements OnInit {
 
 
   openPopup() {
-    this.openDialog(1, 1, '1');
+    this.openDialog(1);
   }
 
 
-  openDialog(dialogType: number, idEdicaoEntrevistador: number, area: string) {
+  openDialog(dialogType: number) {
     // reference https://material.angular.io/components/dialog/examples    
     const dialogRef = this.dialog.open(DialogContentComponent);
     dialogRef.componentInstance.dialogType = dialogType;
-    dialogRef.componentInstance.IdEdicaoEntrevistador = idEdicaoEntrevistador
-    dialogRef.componentInstance.Area = area;
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

@@ -11,25 +11,9 @@ import { Session } from 'src/app/pages/home/guards/session';
 })
 export class DialogContentComponent implements OnInit {
   dialogType: number = 2;
-  IdEdicaoEntrevistador: number = 0;
-  Area: string = '';
-
-
-  login: string;
-  senha: string;
-  observacao: string;
-  observacaoValid: boolean = false;
-
-  loginValid: boolean = false;
-  senhaValid: boolean = false;
-  mostraSenha: boolean = false;
-
-  qtdCaracteresObs: number = 0;
-
-
-
 
   tabela: Array<RowTable>;
+  itemDetails: TableDataInfo;
 
   constructor(
 
@@ -43,6 +27,7 @@ export class DialogContentComponent implements OnInit {
   page: number = 1;
   config: any;
   itemsPorPagina = 1;
+  openDetails: boolean = false;
 
   id: string;
   ngOnInit(): void {
@@ -68,7 +53,7 @@ export class DialogContentComponent implements OnInit {
 
     for (let index = 0; index < 20; index++) {
       const item = new TableDataInfo();
-      item.RazonSocial = "Arthur J. Gallagher Perú Corredores de Reaeguros S.A.";
+      item.RazonSocial = "Arthur J. Gallagher Perú Corredores de Reaeguros S.A."+ index.toString();
       item.NombreComercial = "Beta Solutions";
       item.RUC = "10987654321";
       item.Contacto = "Ana Martinez";
@@ -79,7 +64,7 @@ export class DialogContentComponent implements OnInit {
       item.Telefono = "912345678";
       item.ActividadEconomica = "Consultoría";
       item.Site = "www.betasolutions.com";
-      item.Fundacion = "2010";
+      item.Fundacion = "05/05/2024";
       item.GerenteGeneral = "Carlos Gomez";
 
       SimulandoDadosBanco.push(item);
@@ -87,7 +72,7 @@ export class DialogContentComponent implements OnInit {
 
 
     var cont = 1;
-    var listtablePage= [];
+    var listtablePage = [];
     SimulandoDadosBanco.forEach(x => {
 
 
@@ -101,7 +86,7 @@ export class DialogContentComponent implements OnInit {
         itemTable.tableData = listtablePage;
         rows.push(itemTable);
 
-        listtablePage= [];
+        listtablePage = [];
         cont = 1;
       }
 
@@ -109,6 +94,16 @@ export class DialogContentComponent implements OnInit {
 
     this.tabela = rows;
 
+  }
+
+  openFormDetails(item: TableDataInfo) {
+    this.itemDetails = item;
+    this.openDetails=true;
+  }
+
+  returnTable()
+  {
+    this.openDetails=false;
   }
 
 
@@ -154,9 +149,7 @@ export class DialogContentComponent implements OnInit {
   }
 
 
-
   redirectOptionItem(opcao: number) {
-
     this.openDialog(opcao);
   }
 

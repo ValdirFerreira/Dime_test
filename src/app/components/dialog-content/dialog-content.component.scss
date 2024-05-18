@@ -306,4 +306,106 @@
 ::ng-deep .mat-dialog-content {
   overflow: hidden;
   overflow-y: auto;
+
+  @media screen and (max-width: 1030px) {
+  }
 }
+
+.form-register-popup {
+  border-radius: 24px;
+  display: inline-flex;
+  padding: 4px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 860px;
+
+  @media screen and (max-width: 1030px) {
+    height: 888px;
+    width: 100%;
+    padding: 22px;
+    padding: 0px;
+  }
+
+  .componente-9 {
+    width: 100%;
+    .wrapper-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-gap: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .box-form {
+      width: 100%;
+      height: 90px;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      height: 56px;
+
+      border-radius: 6px;
+      border: 1px solid var(--Border-Platinum, #e3e4e8);
+      background: var(--Background-White, #fefefe);
+      pointer-events: none;
+      cursor: no-drop;
+      color: var(--neutral-texts-paynes-gray, #606f7d);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px; /* 171.429% */
+      padding-left: 6px;
+    }
+
+    label {
+      color: var(--Text-Raisin-Black, #21222c);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px; /* 142.857% */
+    }
+
+    textarea {
+      height: 120px;
+    }
+
+    .btn-send {
+      border-radius: 8px;
+      background: var(--Brand-Colour-Marian-Blue, #3b4395);
+      cursor: pointer;
+      width: 216px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media screen and (max-width: 1030px) {
+        width: 100%;
+      }
+
+      .text {
+        color: var(--Background-White, #fefefe);
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px; /* 150% */
+        cursor: pointer;
+        margin: auto;
+        display: flex;
+      }
+    }
+  }
+}
+
+// ::ng-deep .mat-dialog-content {
+//   align-items: end !important;
+// }
+
+// ::ng-deep .cdk-global-overlay-wrapper {
+//   align-items: end !important;
+// }
